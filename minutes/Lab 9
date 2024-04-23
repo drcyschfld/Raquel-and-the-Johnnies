@@ -14,6 +14,12 @@ Attendees: Darcy Schofield, Natalie Brown, Raquel Kampel, Axel Purcell
 
     
     -Darcy: 2.5, 2.6
-
+-Pin the tail on the donkey. Use potentiometer to simulate the donkey, close your eyes and try to press the positive side,
+    if you miss or get the negative side, no lights turn on, if you hit the positive side, all lights will turn all the way on 
+    and you win.
+-ball throwing game. Throw something at the capacitive touch sensor and if you hit it then it will turn on all the LEDs
     
     -Axel: 2.7, 2.8
+
+
+Action Items:
