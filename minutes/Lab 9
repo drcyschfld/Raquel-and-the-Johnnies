@@ -6,20 +6,27 @@ Attendees: Darcy Schofield, Natalie Brown, Raquel Kampel, Axel Purcell
 
 -picked group members
 -created epic group name
--Split up game modulesL
-    -Nat: 2.1, 2.2
+-Split up game modules
 
-    
-    -Raquel: 2.3, 2.4
-
-    
+Researched assignment spec sections and brainstormed game ideas: 
+    -Nat: 2.1, 2.2  
+    -Raquel: 2.3, 2.4  
     -Darcy: 2.5, 2.6
--Pin the tail on the donkey. Use potentiometer to simulate the donkey, close your eyes and try to press the positive side,
+    -Axel: 2.7, 2.8
+
+* Various Ideas were brainstormed. The games we deemed most feasible include: 
+
+- Solve a riddle - enter the answer into the terminal which is compared to the correct answer and the result is returned
+- Pin the tail on the donkey. Use potentiometer to simulate the donkey, close your eyes and try to press the positive side,
     if you miss or get the negative side, no lights turn on, if you hit the positive side, all lights will turn all the way on 
     and you win.
--ball throwing game. Throw something at the capacitive touch sensor and if you hit it then it will turn on all the LEDs
-    
-    -Axel: 2.7, 2.8
+- ball throwing game. Throw something at the capacitive touch sensor and if you hit it then it will turn on all the LEDs
+- Memory game - test with colours using LEDs to display and buttons to input  
 - Random wheel, hold down button to change strength (alternates back and forth)
+- Servo motor throws wheel based on voltage which is chosen based on MC button press
 
 Action Items:
+
+* Plan project modules and games
+* Proof of concept for each task 
+* Present ideas to the tutors in Lab 10.
