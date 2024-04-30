@@ -1,0 +1,28 @@
+Lab 10 Minutes:
+
+Tuesday, 30th April
+
+Attendees: Darcy Schofield, Natalie Brown, Raquel Kampel, Axel Purcell
+
+- In this lab, we presented our ideas to the tutors for discussion and approval.
+- We had compiled a google doc throughout the week with our various ideas for games.
+- After discussion with Michael, we decided on our 'bowling' idea, using the PTU to roll a ball down an alleyway to gain points.
+
+Design Modules:
+
+- Mechanical design (Physical Environment - ramp, alley, ball)
+- Potentiometer to dicate the desired angle of the ramp (attached to PTU)
+- PTU rotating to desired release angle 
+- Servo motor to release gate holding ball 
+- Lidar to read distance travelled
+- Sensor (demoed in Week 10 lecture) to provide 'cosmetic' indication of how close the ball is to the target distance
+- Timer interface with LEDs to display time running out 
+- Serial point system with UI display
+
+
+Action Items:
+* Get the PTU working with a potentionmeter to control rotation.
+* Delegate modules and work on functionality of individual modules 
+* Complete mechanical design BEFORE the next lab. I.e., create the alleyway and ramp. Decide on a ball to roll. 
+
+We will meet on Friday (3/5) to work on the task further. 
