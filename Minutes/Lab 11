@@ -1,0 +1,10 @@
+Lab 11: 7 May 2024
+Attendees: Everyone
+
+Since the last meeting, the following progressions have been made: 
+- The timer module is complete: the LED lights on the STM32 start completely lit up and progressively turn off as the timer runs out, at which point the lights will flash quickly in some pattern. 
+- The serial module is complete: the program recieves a distance (the results of the player's turn) and returns the points scored by the player. 
+
+In today's lab we worked on progressing through the assignment modules, with the intention of doing our integration next week. 
+
+
