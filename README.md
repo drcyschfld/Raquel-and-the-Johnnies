@@ -10,7 +10,7 @@ It is important to note that going further does not necessarily provide more poi
 ## Group Members and Responsibilities
 Contributors to the project were Darcy Schofield, Natalie Brown, Axel Purcell, and Raquel Kampel. 
 
-Darcy was responsible for the timer countdown and capacaitive touch sensor. Natalie worked on the PTU functionality and mechanical design. Axel designed the serial interface and lidar functionaility. Raquel was tasked with the servo motor module. 
+Darcy was responsible for the timer countdown and capacaitive touch sensor. Natalie worked on the PTU and lidar functionality and mechanical design. Axel designed the serial interface reading from lidar functionaility. Raquel was responsible for the servo motor module. 
 
 Natalie was responsible for the meeting minutes. 
 
@@ -27,14 +27,13 @@ There are a number of elements to the project which have been modularised for si
 
 The project is modularised into the following parts:
 ### 1. PTU rotation
-- ramp angle control
+The PTU module a key component of the code which controls the rotation of the ramp from which the ball is released. The PTU is continuously rotating by default and is paused when the user presses a button to stop the ramp at the desired release angle. The ramp remains in this position until after the ball is released by the miniservo gate. Afterwards, the ramp is returned to neutral position so the ball distance can be read by the lidar.
 
 ### 2. Lidar 
-- reading ball distance and returning result to serial
+The lidar functionality is to read the distance travelled by the ball which determines the number of points scored by a player. The lidar range is read by the serial module which will return the results to the players.
 
 ### 3. Servo motor
-- opens gate when time is up
-- ball is released 
+The servo motor module controls the opening and closing of the gate which holds the ball before release. It is triggered when the timer is up and the gate raises once, allowing the ball to roll away, and returns to a closed position for the next turn. 
 
 ### 4. Piezo/Capacative touch sensor
 - cosmetic addition
@@ -48,8 +47,6 @@ The project is modularised into the following parts:
 ### 6. Serial Interface 
 - recieve lidar data and output points/distance to user interface
 
-### 7. Integration
-- integrate all modules to create a cohesive game 
 
 ## Testing
 **PTU Rotation**
@@ -70,8 +67,6 @@ The project is modularised into the following parts:
 **Serial interface**
 - input sample distances and observe output
 
-**Integration**
-- play the game
 
 
 
