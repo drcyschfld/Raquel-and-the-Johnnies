@@ -1,59 +1,10 @@
-13:26:07 **** Incremental Build of configuration Debug for project major-project-base-serialise ****
+19:30:11 **** Incremental Build of configuration Debug for project major-project-base-serialise ****
 make -j7 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xC -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
-../Core/Src/main.c:111:17: warning: unused variable 'buffer' [-Wunused-variable]
-  111 |         uint8_t buffer[32];
-      |                 ^~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:322:26: warning: unused variable 'timeout' [-Wunused-variable]
-  322 |                 uint16_t timeout;
-      |                          ^~~~~~~
-../Core/Src/main.c:320:35: warning: unused variable 'lidar_distance' [-Wunused-variable]
-  320 |                 volatile uint16_t lidar_distance = 0xff;
-      |                                   ^~~~~~~~~~~~~~
-../Core/Src/main.c:318:25: warning: unused variable 'lidar_LSBa' [-Wunused-variable]
-  318 |                 uint8_t lidar_LSBa = 0x00;
-      |                         ^~~~~~~~~~
-../Core/Src/main.c:317:25: warning: unused variable 'lidar_MSBa' [-Wunused-variable]
-  317 |                 uint8_t lidar_MSBa = 0x00;
-      |                         ^~~~~~~~~~
-../Core/Src/main.c:297:25: warning: unused variable 'roll_rate' [-Wunused-variable]
-  297 |                 int16_t roll_rate = ((zMSB << 8) | zLSB);
-      |                         ^~~~~~~~~
-../Core/Src/main.c:291:25: warning: unused variable 'pitch_rate' [-Wunused-variable]
-  291 |                 int16_t pitch_rate = ((yMSB << 8) | yLSB);
-      |                         ^~~~~~~~~~
-../Core/Src/main.c:285:25: warning: unused variable 'yaw_rate' [-Wunused-variable]
-  285 |                 int16_t yaw_rate = ((xMSB << 8) | xLSB);
-      |                         ^~~~~~~~
-../Core/Src/main.c:183:27: warning: variable 'return_value' set but not used [-Wunused-but-set-variable]
-  183 |         HAL_StatusTypeDef return_value = 0x00;
-      |                           ^~~~~~~~~~~~
-../Core/Src/main.c:173:17: warning: unused variable 'string_to_send' [-Wunused-variable]
-  173 |         uint8_t string_to_send[64] = "This is a string !\r\n";
-      |                 ^~~~~~~~~~~~~~
-../Core/Src/main.c:170:17: warning: unused variable 'size_2' [-Wunused-variable]
-  170 |         uint8_t size_2 = sizeof(struct_2);
-      |                 ^~~~~~
-../Core/Src/main.c:169:17: warning: unused variable 'size_1' [-Wunused-variable]
-  169 |         uint8_t size_1 = sizeof(struct_1);
-      |                 ^~~~~~
-At top level:
-../Core/Src/main.c:696:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
-  696 | static void MX_GPIO_Init(void)
-      |             ^~~~~~~~~~~~
-arm-none-eabi-gcc -o "major-project-base-serialise.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/nataliebrown/Documents/GitHub/MTRX2700-2024/W09-serialise-example/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="major-project-base-serialise.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: major-project-base-serialise.elf
- 
 arm-none-eabi-size  major-project-base-serialise.elf 
-arm-none-eabi-objdump -h -S major-project-base-serialise.elf  > "major-project-base-serialise.list"
    text	   data	    bss	    dec	    hex	filename
-  22468	     24	   2664	  25156	   6244	major-project-base-serialise.elf
+  25756	    168	   3000	  28924	   70fc	major-project-base-serialise.elf
 Finished building: default.size.stdout
  
-Finished building: major-project-base-serialise.list
- 
 
-13:26:08 Build Finished. 0 errors, 13 warnings. (took 948ms)
+19:30:12 Build Finished. 0 errors, 0 warnings. (took 642ms)
 

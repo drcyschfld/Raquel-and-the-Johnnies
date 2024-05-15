@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;majorprojectbase/Core/Src/pause_ptu&apos; to &apos;pause_ptu.c&apos;" description="Rename resource &apos;pause_ptu&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/pause_ptu" name="pause_ptu.c" stamp="1715744847075" updateReferences="true"/>
+</session>
