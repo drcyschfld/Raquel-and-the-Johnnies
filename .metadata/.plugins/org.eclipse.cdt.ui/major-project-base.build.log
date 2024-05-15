@@ -1,0 +1,10 @@
+16:57:37 **** Incremental Build of configuration Debug for project major-project-base ****
+make -j7 all 
+arm-none-eabi-size  major-project-base.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31592	    176	   2992	  34760	   87c8	major-project-base.elf
+Finished building: default.size.stdout
+ 
+
+16:57:38 Build Finished. 0 errors, 0 warnings. (took 674ms)
+
