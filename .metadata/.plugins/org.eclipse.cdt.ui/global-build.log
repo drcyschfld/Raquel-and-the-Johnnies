@@ -7733,3 +7733,59 @@ Finished building: default.size.stdout
  
 Finished building: major-project-base-serialise.list
  
+13:39:24 **** Build of configuration Debug for project major-project-base ****
+make -j7 all 
+arm-none-eabi-size  major-project-base.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31592	    176	   2992	  34760	   87c8	major-project-base.elf
+Finished building: default.size.stdout
+ 
+13:39:48 **** Incremental Build of configuration Debug for project major-project-base ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F303xC -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_TIM_IC_CaptureCallback':
+../Core/Src/main.c:109:17: warning: unused variable 'buffer' [-Wunused-variable]
+  109 |         uint8_t buffer[32];
+      |                 ^~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:149:37: warning: initialization of 'LedRegister *' from incompatible pointer type 'uint8_t *' {aka 'unsigned char *'} [-Wincompatible-pointer-types]
+  149 |         LedRegister *led_register = ((uint8_t*)&(GPIOE->ODR)) + 1;
+      |                                     ^
+../Core/Src/main.c:307:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  307 |                 sprintf(string_to_send, "%hu,%hu,%hd,%hd,%hd\r\n", last_period, lidar_distance*10, roll_rate, pitch_rate, yaw_rate);
+      |                 ^~~~~~~
+../Core/Src/main.c:30:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   29 | #include "math.h"
+  +++ |+#include <stdio.h>
+   30 | 
+../Core/Src/main.c:307:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
+  307 |                 sprintf(string_to_send, "%hu,%hu,%hd,%hd,%hd\r\n", last_period, lidar_distance*10, roll_rate, pitch_rate, yaw_rate);
+      |                 ^~~~~~~
+../Core/Src/main.c:307:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/main.c:307:25: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  307 |                 sprintf(string_to_send, "%hu,%hu,%hd,%hd,%hd\r\n", last_period, lidar_distance*10, roll_rate, pitch_rate, yaw_rate);
+      |                         ^~~~~~~~~~~~~~
+      |                         |
+      |                         uint8_t * {aka unsigned char *}
+../Core/Src/main.c:307:25: note: expected 'char *' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+../Core/Src/main.c:300:30: warning: unused variable 'read_values_now' [-Wunused-variable]
+  300 |                 volatile int read_values_now = 0;
+      |                              ^~~~~~~~~~~~~~~
+../Core/Src/main.c:153:27: warning: variable 'return_value' set but not used [-Wunused-but-set-variable]
+  153 |         HAL_StatusTypeDef return_value = 0x00;
+      |                           ^~~~~~~~~~~~
+At top level:
+../Core/Src/main.c:606:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  606 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "major-project-base.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/nataliebrown/Documents/GitHub/MTRX2700-2024/major-project-base/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="major-project-base.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: major-project-base.elf
+ 
+arm-none-eabi-size  major-project-base.elf 
+arm-none-eabi-objdump -h -S major-project-base.elf  > "major-project-base.list"
+   text	   data	    bss	    dec	    hex	filename
+  31600	    176	   2992	  34768	   87d0	major-project-base.elf
+Finished building: default.size.stdout
+ 
+Finished building: major-project-base.list
+ 

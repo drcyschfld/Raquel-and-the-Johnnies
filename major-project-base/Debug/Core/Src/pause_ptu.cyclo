@@ -1,8 +1,0 @@
-../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
-../Drivers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	2
-../Core/Src/pause_ptu.c:20:6:enable_interrupt	1
-../Core/Src/pause_ptu.c:47:6:EXTI0_IRQHandler	2
-../Core/Src/pause_ptu.c:56:6:button_initialise	1
-../Core/Src/pause_ptu.c:60:9:get_ptu_state	1
-../Core/Src/pause_ptu.c:64:6:pause_ptu	1
-../Core/Src/pause_ptu.c:102:6:chase_led	2
