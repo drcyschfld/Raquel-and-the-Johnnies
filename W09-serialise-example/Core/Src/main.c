@@ -28,6 +28,7 @@
 #include "serialise.h"
 #include "button_interrupt.h"
 
+
 #include "math.h"
 
 /* USER CODE END Includes */
@@ -177,7 +178,6 @@ int main(void)
 	button_init(&pause_ptu);
 	enable_interrupt();
 
-//	while(1){};
 
 	LedRegister *led_register = ((uint8_t*)&(GPIOE->ODR)) + 1;
 
@@ -246,15 +246,15 @@ int main(void)
 	// delay for initialisation of the lidar
 	HAL_Delay(100);
 
-	while (get_ptu_state()!=0)
+	while (get_ptu_state() != 0)
 	{
 
 		if (PWM_direction_clockwise == 1) {
-			vertical_PWM += 4;
+			vertical_PWM += 3;
 			horizontal_PWM += 0;
 		}
 		else {
-			vertical_PWM -= 4;
+			vertical_PWM -= 3;
 			horizontal_PWM -= 0;
 		}
 
@@ -269,6 +269,7 @@ int main(void)
 
 		TIM2->CCR1 = vertical_PWM;
 		TIM2->CCR2 = horizontal_PWM;
+
 
 		uint8_t xMSB = 0x00;
 		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x29, 1, &xMSB, 1, 10);
@@ -288,18 +289,6 @@ int main(void)
 		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x2C, 1, &zLSB, 1, 10);
 		int16_t roll_rate = ((zMSB << 8) | zLSB);
 
-		// This is turned off as the LED state is set from the serial input
-		/*
-		if (pitch_rate < 0)
-			led_register->led_groups.led_pair_1 = 0b01;
-		else
-			led_register->led_groups.led_pair_1 = 0b10;
-
-		if (yaw_rate < 0)
-			led_register->led_groups.led_pair_2 = 1;
-		else
-			led_register->led_groups.led_pair_2 = 2;
-		 */
 
 		uint8_t lidar_value = 0x03;
 		return_value = HAL_I2C_Mem_Write(&hi2c1, LIDAR_WR, 0x00, 1, &lidar_value, 1, 100);
@@ -328,13 +317,6 @@ int main(void)
 		uint8_t lidar_ranges = lidar_distance / (100/4); // 100cm broken into 4 groups
 		if (lidar_ranges > 3)
 			lidar_ranges = 3;
-
-		// This is turned off as the LED state is set from the serial input
-		/*
-		uint8_t led_values = pow(2, lidar_ranges);
-
-		//led_register->led_groups.led_set_of_4 = led_values;
-		*/
 
 		if (last_period > 4000)
 			last_period = 5000;
@@ -399,10 +381,6 @@ int main(void)
 	/* USER CODE END 3 */
 }
 
-/**
- * @brief System Clock Configuration
- * @retval None
- */
 void SystemClock_Config(void)
 {
 	RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -764,3 +742,4 @@ void assert_failed(uint8_t *file, uint32_t line)
 	/* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+

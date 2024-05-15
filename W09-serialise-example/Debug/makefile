@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := major-project-base-serialise
+BUILD_ARTIFACT_NAME := W09-serialise-example
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-major-project-base-serialise.elf \
+W09-serialise-example.elf \
 
 MAP_FILES += \
-major-project-base-serialise.map \
+W09-serialise-example.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-major-project-base-serialise.list \
+W09-serialise-example.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: major-project-base-serialise.elf secondary-outputs
+main-build: W09-serialise-example.elf secondary-outputs
 
 # Tool invocations
-major-project-base-serialise.elf major-project-base-serialise.map: $(OBJS) $(USER_OBJS) /Users/nataliebrown/Documents/GitHub/MTRX2700-2024/W09-serialise-example/STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "major-project-base-serialise.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/nataliebrown/Documents/GitHub/MTRX2700-2024/W09-serialise-example/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="major-project-base-serialise.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+W09-serialise-example.elf W09-serialise-example.map: $(OBJS) $(USER_OBJS) /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/W09-serialise-example/STM32F303VCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "W09-serialise-example.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/W09-serialise-example/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="W09-serialise-example.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-major-project-base-serialise.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "major-project-base-serialise.list"
+W09-serialise-example.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "W09-serialise-example.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout major-project-base-serialise.elf major-project-base-serialise.list major-project-base-serialise.map
+	-$(RM) W09-serialise-example.elf W09-serialise-example.list W09-serialise-example.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

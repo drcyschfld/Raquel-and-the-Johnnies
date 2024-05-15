@@ -3,3 +3,5 @@
 1715745725756	Delete resource 'majorprojectbase'
 1715746063444	Rename resource 'major-project-base-serialise'
 1715746104718	Delete resource 'old-serialise'
+1715769821052	Delete resource 'W09-serialise-example/Core/Src/setup.c'
+1715769827072	Delete resource 'W09-serialise-example/Core/Inc/setup.h'

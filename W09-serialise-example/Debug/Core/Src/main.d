@@ -34,7 +34,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h \
  ../Core/Inc/ptu_definitions.h ../Core/Inc/ptu_i2c.h ../Core/Inc/serial.h \
  ../Core/Inc/serialise.h ../Core/Inc/button_interrupt.h \
- ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h
+ ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h \
+ ../Core/Inc/setup.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:
 ../Core/Inc/stm32f3xx_hal_conf.h:
@@ -75,3 +76,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/serialise.h:
 ../Core/Inc/button_interrupt.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h:
+../Core/Inc/setup.h:

@@ -1,0 +1,10 @@
+20:31:47 **** Incremental Build of configuration Debug for project W09-serialise-example ****
+make -j7 all 
+arm-none-eabi-size  W09-serialise-example.elf 
+   text	   data	    bss	    dec	    hex	filename
+  25756	    168	   3000	  28924	   70fc	W09-serialise-example.elf
+Finished building: default.size.stdout
+ 
+
+20:31:48 Build Finished. 0 errors, 0 warnings. (took 643ms)
+

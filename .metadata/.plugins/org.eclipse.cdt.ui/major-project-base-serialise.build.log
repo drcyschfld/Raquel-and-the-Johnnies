@@ -1,4 +1,4 @@
-19:30:11 **** Incremental Build of configuration Debug for project major-project-base-serialise ****
+19:36:16 **** Incremental Build of configuration Debug for project major-project-base-serialise ****
 make -j7 all 
 arm-none-eabi-size  major-project-base-serialise.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  major-project-base-serialise.elf
 Finished building: default.size.stdout
  
 
-19:30:12 Build Finished. 0 errors, 0 warnings. (took 642ms)
+19:36:16 Build Finished. 0 errors, 0 warnings. (took 580ms)
 

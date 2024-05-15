@@ -1,0 +1,381 @@
+/* USER CODE BEGIN Header */
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+#include "ptu_definitions.h"
+#include "ptu_i2c.h"
+#include "serial.h"
+#include "serialise.h"
+#include "button_interrupt.h"
+#include "setup.h"
+
+#include "math.h"
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
+SPI_HandleTypeDef hspi1;
+
+TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
+
+PCD_HandleTypeDef hpcd_USB_FS;
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+//void SystemClock_Config(void);
+//static void MX_GPIO_Init(void);
+//static void MX_I2C1_Init(void);
+//static void MX_SPI1_Init(void);
+//static void MX_USB_PCD_Init(void);
+//static void MX_TIM2_Init(void);
+//static void MX_TIM1_Init(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+// enable the clocks for desired peripherals (GPIOA, C and E)
+void enable_clocks() {
+	RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_GPIOCEN | RCC_AHBENR_GPIOEEN;
+}
+
+
+// initialise the discovery board I/O (just outputs: inputs are selected by default)
+void initialise_board() {
+	// get a pointer to the second half word of the MODER register (for outputs pe8-15)
+	uint16_t *led_output_registers = ((uint16_t *)&(GPIOE->MODER)) + 1;
+	*led_output_registers = 0x5555;
+}
+
+
+typedef union {
+	uint8_t all_leds;
+	struct {
+		uint8_t led_pair_1 : 2;
+		uint8_t led_pair_2 : 2;
+		uint8_t led_set_of_4 : 4;
+	} led_groups;
+} LedRegister;
+
+
+
+uint16_t last_capture = 0;
+uint16_t diff = 0;
+
+uint16_t rise_time = 0;
+uint16_t last_period = 0;
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+	uint8_t buffer[32];
+	if (htim->Instance == TIM1 && htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+	{
+		uint16_t IC_Val1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1); // read the first value
+
+		if (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_8) == 1)
+			rise_time = IC_Val1;
+		else
+			last_period = IC_Val1 - rise_time;
+
+		diff = IC_Val1 - last_capture;
+		last_capture = IC_Val1;
+	}
+}
+
+
+typedef struct {
+	uint8_t var1;
+	uint32_t var2;
+	uint8_t var3;
+	uint32_t var4;
+	uint8_t var5;
+	uint8_t var6;
+} struct_1;
+
+
+typedef struct {
+	uint32_t var2;
+	uint32_t var4;
+	uint8_t var1;
+	uint8_t var3;
+	uint8_t var5;
+	uint8_t var6;
+} struct_2;
+
+
+/* USER CODE END 0 */
+
+/**
+ * @brief  The application entry point.
+ * @retval int
+ */
+int main(void)
+{
+	/* USER CODE BEGIN 1 */
+
+	// PTU Pin wiring
+	//  2 x grounds between stm32 and PTU
+	//  PA1 and PA15 are TIM2 channels 1 and 2. These are used to drive
+	//    the PWM for the PTU
+	//  PA8 is TIM1 channel 1, this is used for the LASPWM (the laser PWM signal)
+	//  PB6 is I2C1 clock (SCL on the PTU), PB7 is I2C1 data (SDA on the PTU)
+
+
+	// look at the size difference between these structs,
+	//  they are because the 32 bit microcontroller
+	//  packs the data so the divisions are in groups
+	//  of 4bytes (4bytes=32bit)
+	uint8_t size_1 = sizeof(struct_1);
+	uint8_t size_2 = sizeof(struct_2);
+
+
+	uint8_t string_to_send[64] = "This is a string !\r\n";
+
+	enable_clocks();
+	initialise_board();
+	button_init(&pause_ptu);
+	enable_interrupt();
+
+
+	LedRegister *led_register = ((uint8_t*)&(GPIOE->ODR)) + 1;
+
+	SerialInitialise(BAUD_115200, &USART1_PORT, 0x00);
+
+	HAL_StatusTypeDef return_value = 0x00;
+
+	volatile uint16_t vertical_PWM = 1800;
+	volatile uint16_t horizontal_PWM = 1400;
+
+	/* USER CODE END 1 */
+
+	/* MCU Configuration--------------------------------------------------------*/
+
+	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+	HAL_Init();
+
+	/* USER CODE BEGIN Init */
+
+	/* USER CODE END Init */
+
+	/* Configure the system clock */
+	SystemClock_Config();
+
+	/* USER CODE BEGIN SysInit */
+
+	/* USER CODE END SysInit */
+
+	/* Initialize all configured peripherals */
+	//MX_GPIO_Init();
+	MX_I2C1_Init();
+	MX_SPI1_Init();
+	MX_USB_PCD_Init();
+	MX_TIM2_Init();
+	MX_TIM1_Init();
+	/* USER CODE BEGIN 2 */
+
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+
+	HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_1);
+
+	// TIM 2 is setup with a prescaler that makes 1 count = 1 microsecond
+	// Even with HAL, you can still set the values yourself
+	TIM2->ARR = 20000; // 20000 = 20ms, which is the desired clock period for servos
+	TIM2->CR1 |= TIM_CR1_ARPE; // this makes the timing not change until the next pulse is finished
+
+	// note: for PWM if you continually change the clock period
+	// you can get unexpected results. To remove this, set ARPE so that the
+	// ARR settings are not activated until the next cycle.
+
+	initialise_ptu_i2c(&hi2c1);
+
+	/* USER CODE END 2 */
+
+	/* Infinite loop */
+	/* USER CODE BEGIN WHILE */
+
+
+	// reset lidar board
+	uint8_t reset_value = 0x00;
+	return_value = HAL_I2C_Mem_Write(&hi2c1, LIDAR_WR, 0x00, 1, &reset_value, 1, 10);
+
+	uint8_t PWM_direction_clockwise = 0;
+
+	// delay for initialisation of the lidar
+	HAL_Delay(100);
+
+	while (get_ptu_state()!=0)
+	{
+
+		if (PWM_direction_clockwise == 1) {
+			vertical_PWM += 4;
+			horizontal_PWM += 0;
+		}
+		else {
+			vertical_PWM -= 4;
+			horizontal_PWM -= 0;
+		}
+
+		if (vertical_PWM > 1700) {
+			vertical_PWM = 1700;
+			PWM_direction_clockwise = 0;
+		}
+		if (vertical_PWM < 900) {
+			vertical_PWM = 900;
+			PWM_direction_clockwise = 1;
+		}
+
+		TIM2->CCR1 = vertical_PWM;
+		TIM2->CCR2 = horizontal_PWM;
+
+		uint8_t xMSB = 0x00;
+		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x29, 1, &xMSB, 1, 10);
+		uint8_t xLSB = 0x00;
+		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x28, 1, &xLSB, 1, 10);
+		int16_t yaw_rate = ((xMSB << 8) | xLSB);
+
+		uint8_t yMSB = 0x00;
+		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x2B, 1, &yMSB, 1, 10);
+		uint8_t yLSB = 0x00;
+		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x2A, 1, &yLSB, 1, 10);
+		int16_t pitch_rate = ((yMSB << 8) | yLSB);
+
+		uint8_t zMSB = 0x00;
+		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x2D, 1, &zMSB, 1, 10);
+		uint8_t zLSB = 0x00;
+		HAL_I2C_Mem_Read(&hi2c1,gyro_rd, 0x2C, 1, &zLSB, 1, 10);
+		int16_t roll_rate = ((zMSB << 8) | zLSB);
+
+
+		uint8_t lidar_value = 0x03;
+		return_value = HAL_I2C_Mem_Write(&hi2c1, LIDAR_WR, 0x00, 1, &lidar_value, 1, 100);
+
+		lidar_value = 0xff;
+
+		uint8_t lidar_MSBa = 0x00;
+		uint8_t lidar_LSBa = 0x00;
+
+		volatile uint16_t lidar_distance = 0xff;
+
+		uint16_t timeout;
+
+		while ((lidar_value & 0x01) != 0x00) {
+			return_value = HAL_I2C_Mem_Read(&hi2c1, LIDAR_RD, 0x01, 1, &lidar_value, 1, 100);
+
+			return_value = HAL_I2C_Mem_Read(&hi2c1, LIDAR_RD, 0x0f, 1, &lidar_MSBa, 1, 100);
+			return_value = HAL_I2C_Mem_Read(&hi2c1, LIDAR_RD, 0x10, 1, &lidar_LSBa, 1, 100);
+
+			lidar_distance = ((lidar_MSBa << 8) | lidar_LSBa);
+			timeout += 1;
+			if (timeout > 0xff)
+				break;
+		}
+
+		uint8_t lidar_ranges = lidar_distance / (100/4); // 100cm broken into 4 groups
+		if (lidar_ranges > 3)
+			lidar_ranges = 3;
+
+		if (last_period > 4000)
+			last_period = 5000;
+		if (lidar_distance > 4000)
+			lidar_distance = 5500;
+
+		// Serial string turned off as the data is being sent now through the serialiser
+		sprintf(string_to_send, "%hu,%hu,%hd,%hd,%hd\r\n", last_period, lidar_distance*10, roll_rate, pitch_rate, yaw_rate);
+		SerialOutputString(string_to_send, &USART1_PORT);
+
+
+//		// Construct a button data packet and send over serial
+//		Data button_data;
+//		uint8_t button_data_packet_buffer[6 + sizeof(ButtonAndStatus)] = {0}; // Header + SensorData
+//		button_data.button_and_status.button_state = GPIOA->IDR & 0x01;
+//
+//		uint16_t button_data_buffer_length = pack_buffer(button_data_packet_buffer, BUTTON_AND_STATUS, &button_data);
+//		SerialOutputBuffer(button_data_packet_buffer, button_data_buffer_length, &USART1_PORT); // Send the buffer over serial
+//
+
+//		// Construct a sensor data packet and send over serial
+//		Data sensor_data;
+//		uint8_t sensor_data_packet_buffer[6 + sizeof(SensorData)] = {0}; // Header + SensorData
+//
+//		// Fill sensor_data.sensor_data with your actual sensor readings
+//		sensor_data.sensor_data.acc_x = 12345;
+//		sensor_data.sensor_data.acc_y = 23456;
+//		sensor_data.sensor_data.acc_z = 34567;
+//		sensor_data.sensor_data.gyro_x = roll_rate;
+//		sensor_data.sensor_data.gyro_y = pitch_rate;
+//		sensor_data.sensor_data.gyro_z = yaw_rate;
+//		sensor_data.sensor_data.lidar_pwm = last_period;
+//		sensor_data.sensor_data.lidar_i2c = lidar_distance*10;
+//
+//		uint16_t sensor_data_buffer_length = pack_buffer(sensor_data_packet_buffer, SENSOR_DATA, &sensor_data);
+//		SerialOutputBuffer(sensor_data_packet_buffer, sensor_data_buffer_length, &USART1_PORT); // Send the buffer over serial
+//
+//
+//		// Read a data packet from serial that has the LED state
+//		uint8_t data_packet_input_buffer[32] = {0};
+//		uint16_t data_packet_size = SerialInputPacketHeader(data_packet_input_buffer, &USART1_PORT);
+//
+//		// copy the data to a header structure
+//		Header incoming_header = {0};
+//		memcpy(&incoming_header, data_packet_input_buffer, sizeof(Header));
+//
+//		if (incoming_header.message_type == LED_STATE) {
+//			LEDState desired_led_state = {0};
+//			uint8_t success = SerialInputDataPacket(&desired_led_state, sizeof(desired_led_state), &USART1_PORT);
+//
+//			if (success > 0) {
+//				//uint8_t tmp = desired_led_state.led_byte;
+//				led_register->all_leds = desired_led_state.led_byte;
+//			}
+//		}
+
+		/* USER CODE END WHILE */
+
+		/* USER CODE BEGIN 3 */
+	}
+
+	/* USER CODE END 3 */
+}
