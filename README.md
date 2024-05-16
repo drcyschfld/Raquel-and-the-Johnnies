@@ -2,9 +2,9 @@
 Major Project for MTRX2700
 
 This project explores the use of microcontrollers and hardware components to design a futuristic game show containing arcase games re-imagined for an audience. 
-The chosen game for this project, known as "**GAME NAME**" is spinoff of lawn bowls. 
+The chosen game for this project, known as "Lab Bowls" is similar to lawn bowls. 
 The aim of the game is to gain as many points as possible during the player's three turns. The player with the highest score wins. 
-In order to gain points, players must 'bowl' a ping pong ball down an alleyway by placing the ball on the ramp, which is adjusted to the players desired angle, and wait for the ball to be released and roll down the ramp and onto the alley.
+In order to gain points, players must 'bowl' a golf ball down an alleyway by placing the ball on the ramp, which is adjusted to the players desired angle, and wait for the ball to be released and roll down the ramp and onto the alley.
 It is important to note that going further does not necessarily provide more points
 
 ## Group Members and Responsibilities
@@ -16,8 +16,8 @@ Natalie was responsible for the meeting minutes.
 
 Credit is owed to Stewart Worrall's GitHub repo [MTRX2700-2024](https://github.com/stewart-worrall/MTRX2700-2024), which served as a valuable resource and provided a useful framework for this project. Furthermore, the STM32 Reference Manual and the specific datasheet for the STM32F303 were indispensable in completing this task.
 
-## Prerequisites
-STM32Cube IDE must be installed to run this code, as well as connection to the STM32F303 Microcontroller via micro-USB. IDE can be downloaded  [here](https://github.com/stewart-worrall/MTRX2700-2024). 
+## Getting started
+ [STM32Cube IDE ](https://github.com/stewart-worrall/MTRX2700-2024) and a pan tilt-unit with LIDAR are essential to run this code, as well as connection to the STM32F303 Microcontroller via micro-USB. The project also involves the use of a mini-servo, a capactivie touch sensor, a piezo buzzer, and some mechanical design materials such as a ball. 
 
 This code can be run by cloning it onto your local machine and importing the project into IDE by selecting:
 File > Import > General > Existing project into workspace > Browse, and selecting the desired code to open.
