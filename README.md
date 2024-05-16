@@ -10,7 +10,7 @@ It is important to note that going further does not necessarily provide more poi
 ## Group Members and Responsibilities
 Contributors to the project were Darcy Schofield, Natalie Brown, Axel Purcell, and Raquel Kampel. 
 
-Darcy was responsible for the timer countdown and capacaitive touch sensor. Natalie worked on the PTU & lidar functionality and mechanical design. Axel designed the serial interface reading from lidar functionaility. Raquel was responsible for the servo motor module. 
+Darcy was responsible for the timer countdown and capacaitive touch sensor. Natalie worked on the PTU & lidar functionality. Axel designed the serial interface reading from lidar functionaility. Raquel was responsible for the servo motor module. 
 
 Natalie was responsible for the meeting minutes. 
 
