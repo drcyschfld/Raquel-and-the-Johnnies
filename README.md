@@ -36,17 +36,13 @@ The lidar functionality is to read the distance travelled by the ball which dete
 The servo motor module controls the opening and closing of the gate which holds the ball before release. It is triggered when the timer is up and the gate raises once, allowing the ball to roll away, and returns to a closed position for the next turn. 
 
 ### 4. Piezo/Capacative touch sensor
-- cosmetic addition
-- indicates closeness to target 
+The capacitive touch sensor is a novelty addition to the game which indicates how close to the highest point-scoring location the ball reaches through the use of a piezo buzzer. Much like a metal detector, the piezo buzzer will output a higher frequency noise as the ball becomes closer to the capacitive toucher sensor. This module is not essential to the basic functionality of the game but is an interesting and fun addition to the project. 
 
 ### 5. LED timer countdown
-- 16s time to choose angle and set ball
-- makes servo gate open
-- if you dont put the ball up in time 0 points.
+The LED timer countdown serves as both a functional and 'aesthetic' module in the project. Functionally, the end of the timer indicates to the servo module that the gate should be lifted to release the ball, regardless of if the player has selected a ramp angle. Aesthetically, the module provides a visual representation of the depleting time by turning off LEDs in a circular order on the STM32 board as time progresses, with all the lights off when time is up. With a 16 second time limit, one LED turns off every 2 seconds. 
 
 ### 6. Serial Interface 
-- recieve lidar data and output points/distance to user interface
-
+The serial interface recieves data from the lidar module which indicates how far the ball has travelled. Some logic is perfomed within the code to determine the number of points earned by the player's attempt. The results of the turn (distance travelled and points scored) is returned to the user by the serial interface. 
 
 ## Testing
 **PTU Rotation**
