@@ -4,7 +4,7 @@ Major Project for MTRX2700
 This project explores the use of microcontrollers and hardware components to design a futuristic game show containing arcase games re-imagined for an audience. 
 The chosen game for this project, known as "Lab Bowls" is similar to lawn bowls. 
 The aim of the game is to gain as many points as possible during the player's three turns. The player with the highest score wins. 
-In order to gain points, players must 'bowl' a golf ball down an alleyway by placing the ball on the ramp, which is adjusted to the players desired angle, and wait for the ball to be released and roll down the ramp and onto the alley.
+In order to gain points, players must 'bowl' a ball down an alleyway by placing the ball on the ramp, which is adjusted to the players desired angle, and wait for the ball to be released and roll down the ramp and onto the alley.
 It is important to note that going further does not necessarily provide more points
 
 ## Group Members and Responsibilities
@@ -30,7 +30,7 @@ The project is modularised into the following parts:
 The PTU module a key component of the code which controls the rotation of the ramp from which the ball is released. The PTU is continuously rotating by default and is paused when the user presses a button to stop the ramp at the desired release angle. The ramp remains in this position until after the ball is released by the miniservo gate. Afterwards, the ramp is returned to neutral position so the ball distance can be read by the lidar.
 
 ### 2. Lidar 
-The lidar functionality is to read the distance travelled by the ball which determines the number of points scored by a player. The lidar range is read by the serial module which will return the results to the players.
+The lidar functionality is to read the distance travelled by the ball which determines the number of points scored by a player. The lidar range is read by the serial module which will return the results to the players. The lidar uses PWM to record the distance traveled by the ball. The pulse width is directly related to the distance where 1 milisecond is taken to record 1 meter. 
 
 ### 3. Servo motor
 The servo motor module controls the opening and closing of the gate which holds the ball before release. It is triggered when the timer is up and the gate raises once, allowing the ball to roll away, and returns to a closed position for the next turn. 
@@ -46,13 +46,14 @@ The serial interface recieves data from the lidar module which indicates how far
 
 ## Testing
 **PTU Rotation**
-- test functionality; press button and observe that the ptu stops
+- test functionality; press button and observe that the ptu stops. 
   
 **Lidar**
-- put ball at a known distance away from the lidar and ensure that it reads the correct distance
+- put ball at a known distance away from the lidar and ensure that it reads the correct distance.What is the maximum distance the ball can roll and still be detected. 
 
 **Servo Motor**
-- run code and observe that it does desired behaviour 
+- run code and observe that it does desired behaviour. Since 2000 is max pulse width for 180, what other values are acceptable for variable pulseWidth.
+- Adjusting direction to a higher value incraeses speed at which the motor truns, however higher than 10 will cause motor to glitch. 
 
 **Piezo/Capacative Touch**
 - run code and observe that it does desired behaviour 
