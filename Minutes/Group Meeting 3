@@ -1,0 +1,12 @@
+Friday 19 May, 2pm
+Attendees: Everyone
+
+During this group meeting, we discussed the project progress so far and worked on the following:
+* We uploaded the servo code to the repository so that we could start integrating the servo with the buttons/peizo
+* Nat and Raquel researched into way to make the ball conductive but not reflective.  
+* We updated the Readme file, and looked into ways of testing our code
+
+Before the next meeting:
+* Raquel will buy reflective tape
+* Darcy will have integrated the servo and peizo code
+* Axel will complete the serial interface 
