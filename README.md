@@ -46,23 +46,23 @@ The serial interface recieves data from the lidar module which indicates how far
 
 ## Testing
 **PTU Rotation**
-- test functionality; press button and observe that the ptu stops. 
+- test functionality;Ensure that the PTU rotates fully without button integration. Once that is confimed we added the press button and observe that the ptu stops. When 'direction' = 4 is the max value that we can add. Since 2000 is max pulse width, we cannot add values higher than that. 
   
 **Lidar**
 - put ball at a known distance away from the lidar and ensure that it reads the correct distance.What is the maximum distance the ball can roll and still be detected. 
 
 **Servo Motor**
-- run code and observe that it does desired behaviour. Since 2000 is max pulse width for 180, what other values are acceptable for variable pulseWidth.
-- Adjusting direction to a higher value incraeses speed at which the motor truns, however higher than 10 will cause motor to glitch. 
+- run code and observe that it does desired behaviour. Since 2000 is max pulse width for 180 degrees,values higher than 2000 did not run. Minumim values of 180 was also set.
+- Adjusting direction to a higher value incraeses speed at which the motor truns, however higher than 4 will cause motor to glitch as tehye were to fast. 
 
 **Piezo/Capacative Touch**
 - run code and observe that it does desired behaviour 
 
 **LED Timer Countdown**
-- run code and observe that it does desired behaviour 
+- run code and observe that it does desired behaviour. 
 
 **Serial interface**
-- input sample distances and observe output
+- input sample distances and observe output. tested serial with hard coded values before inetgrating the lidar. anything 100cm or less than 10 = 1000 points
 
 
 
