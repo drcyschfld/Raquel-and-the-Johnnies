@@ -2282,3 +2282,127 @@ org.eclipse.core.runtime.CoreException: Project: major-project-base-serialise is
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2024-05-15 19:51:22.404
 !MESSAGE Existing sessions are:
+!SESSION 2024-05-20 14:34:55.955 -----------------------------------------------
+eclipse.buildId=Version 1.14.0
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_AU
+Framework arguments:  -keyring /Users/nataliebrown/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/nataliebrown/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-05-20 14:35:06.188
+!MESSAGE Log4j2 initialized with config file /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/.metadata/.log4j2.xml
+
+!ENTRY org.eclipse.urischeme 4 0 2024-05-20 14:35:15.085
+!MESSAGE org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+!STACK 0
+java.lang.IllegalArgumentException: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.getDom(PlistFileWriter.java:221)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.<init>(PlistFileWriter.java:69)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.getPlistFileWriter(RegistrationMacOsX.java:122)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.changePlistFile(RegistrationMacOsX.java:139)
+	at org.eclipse.urischeme.internal.registration.RegistrationMacOsX.handleSchemes(RegistrationMacOsX.java:55)
+	at org.eclipse.urischeme.AutoRegisterSchemeHandlersJob.run(AutoRegisterSchemeHandlersJob.java:95)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.xml.sax.SAXParseException; lineNumber: 2; columnNumber: 10; DOCTYPE is disallowed when the feature "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+	at java.xml/com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(DOMParser.java:262)
+	at java.xml/com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(DocumentBuilderImpl.java:342)
+	at org.eclipse.core.internal.runtime.XmlProcessorFactory.parseWithErrorOnDOCTYPE(XmlProcessorFactory.java:237)
+	at org.eclipse.urischeme.internal.registration.PlistFileWriter.getDom(PlistFileWriter.java:219)
+	... 6 more
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-05-20 14:35:15.384
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-20 14:36:09.840
+!MESSAGE Indexed 'major-project-base (for servo)' (28 sources, 120 headers) in 10.3 sec: 12,365 declarations; 75,312 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.17%)
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:37:04.233
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:37:04.233
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:37:04.233
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:37:04.234
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:37:04.477
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:37:04.477
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:37:04.477
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:37:04.477
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:37:39.889
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:37:39.891
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:37:39.891
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:37:39.891
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:37:40.211
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:37:40.211
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:37:40.211
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:37:40.211
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:38:08.676
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:38:08.677
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:38:08.677
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:38:08.678
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:38:31.014
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:38:31.014
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:38:31.014
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:38:31.015
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:38:31.323
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:38:31.323
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:38:31.323
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:38:31.324
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:40:23.436
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:40:23.436
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:40:23.436
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:40:23.437
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 4 77 2024-05-20 14:40:23.793
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-05-20 14:40:23.794
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-05-20 14:40:23.794
+!MESSAGE /Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/major-project-base (for servo) overlaps the location of another project: 'major-project-base (for servo)'
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2024-05-20 14:40:23.795
+!MESSAGE Project is null

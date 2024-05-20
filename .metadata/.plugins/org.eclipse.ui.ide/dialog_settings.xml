@@ -7,6 +7,8 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/W09-serialise-example"/>
+			<item value="/Users/nataliebrown/Documents/GitHub/MTRX2700-2024/W09-serialise-example"/>
 			<item value="/Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/majorprojectbase"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">

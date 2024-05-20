@@ -1,0 +1,15 @@
+14:40:23 **** Incremental Build of configuration Debug for project major-project-base (for servo) ****
+make -j7 all 
+arm-none-eabi-size  major-project-base\ (for\ servo).elf 
+arm-none-eabi-objdump -h -S major-project-base\ (for\ servo).elf  > "major-project-base (for servo).list"
+/bin/sh: -c: line 0: syntax error near unexpected token `('
+/bin/sh: -c: line 0: syntax error near unexpected token `('
+/bin/sh: -c: line 0: `arm-none-eabi-objdump -h -S major-project-base\ (for\ servo).elf  > "major-project-base (for servo).list"'
+/bin/sh: -c: line 0: `arm-none-eabi-size  major-project-base\ (for\ servo).elf '
+make: *** [makefile:69: default.size.stdout] Error 2
+make: *** Waiting for unfinished jobs....
+make: *** [makefile:74: major-project-base (for servo).list] Error 2
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+
+14:40:24 Build Failed. 3 errors, 0 warnings. (took 329ms)
+
