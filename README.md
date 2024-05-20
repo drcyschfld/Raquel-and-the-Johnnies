@@ -10,7 +10,7 @@ It is important to note that going further does not necessarily provide more poi
 ## Group Members and Responsibilities
 Contributors to the project were Darcy Schofield, Natalie Brown, Axel Purcell, and Raquel Kampel. 
 
-Darcy was responsible for the timer countdown and capacaitive touch sensor. Natalie worked on the PTU & lidar functionality. Axel designed the serial interface reading from lidar functionaility. Raquel was responsible for the servo motor module. 
+Darcy was responsible for the timers and capacaitive touch sensor. Natalie worked on the PTU & lidar functionality. Axel designed the serial interface reading from lidar functionaility. Raquel was responsible for the servo motor module. 
 
 Natalie was responsible for the meeting minutes. 
 
@@ -67,9 +67,9 @@ The serial interface recieves data from the lidar module which indicates how far
 ### User Instructions:
 
 ### Timer/LED countdown:
-**Step 1:**
+**Step 1:**<br />
 Open the code (boulesTimer2)
-**Step 2:**
+**Step 2:**<br />
 Run the code on an STM32f3
 **Step 3:**
 The timer has now begun, watch the timer go down
