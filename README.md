@@ -56,16 +56,30 @@ The serial interface recieves data from the lidar module which indicates how far
 - Adjusting direction to a higher value incraeses speed at which the motor truns, however higher than 4 will cause motor to glitch as tehye were to fast. 
 
 **Piezo/Capacative Touch**
-- run code and observe that it does desired behaviour 
+- Testing is completed easily by running the code and observing the nature of it. When watching the code, it can be seen that the lights will individually turn off one at a time at a certain pace, and then the LEDs will flash at another pace. To test, you can select different speeds for these LEDs changes by changing the value given to the timer_set function which is called in main for the countdown, and in digital_io.c inside the chase_led function for the light flashing sequence. Different hex values can be selected such that bigger numbers result in a longer duration time and smaller numbers make it go faster.
 
-**LED Timer Countdown**
+**5. Timer/LED countdown**
 - run code and observe that it does desired behaviour. 
 
 **Serial interface**
 - input sample distances and observe output. tested serial with hard coded values before inetgrating the lidar. anything 100cm or less than 10 = 1000 points
 
+### User Instructions:
 
-
-
-
-
+### Timer/LED countdown:
+Step 1:
+Open the code (boulesTimer2)
+Step 2:
+Run the code on an STM32f3
+Step 3:
+The timer has now begun, watch the timer go down
+Step 4:
+Release the ball before the timer runs out
+Step 5:
+After 16 seconds has passed, the timer will run out and the LEDs will flash very quickly, indicating the end of your turn
+Step 6:
+If you want to play the timer/game again, press the black 'RESET' button
+Step 7:
+If you would like to reduce the amount of time it takes before the timer runs out and your turn ends (perhaps to make the game more difficult), in the main function, change the hex value given in the timer_set function to a smaller number for less time or a larger number for more time
+Step 8:
+If you would like to change the speed of the flashing LEDs (for aesthetics) locate the chase_led function inside digital_io.c and change the value given in the timer_set function to a smaller number for faster flashes, or a larger number for slower flashes.
