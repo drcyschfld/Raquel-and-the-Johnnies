@@ -1,7 +1,0 @@
-../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
-../Drivers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	16	static
-../Core/Src/button_interrupt.c:16:6:enable_interrupt	8	static,ignoring_inline_asm
-../Core/Src/button_interrupt.c:43:6:EXTI0_IRQHandler	8	static
-../Core/Src/button_interrupt.c:54:6:button_init	16	static
-../Core/Src/button_interrupt.c:58:9:get_ptu_state	4	static
-../Core/Src/button_interrupt.c:62:6:pause_ptu	4	static

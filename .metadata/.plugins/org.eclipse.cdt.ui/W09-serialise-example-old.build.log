@@ -1,0 +1,16 @@
+15:14:18 **** Incremental Build of configuration Debug for project W09-serialise-example-old ****
+make -j7 all 
+arm-none-eabi-gcc -o "W09-serialise-example-old.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/nataliebrown/Documents/GitHub/Raquel-and-the-Johnnies/W09-serialise-example-old/STM32F303VCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="W09-serialise-example-old.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: W09-serialise-example-old.elf
+ 
+arm-none-eabi-size  W09-serialise-example-old.elf 
+arm-none-eabi-objdump -h -S W09-serialise-example-old.elf  > "W09-serialise-example-old.list"
+   text	   data	    bss	    dec	    hex	filename
+  26036	    168	   3000	  29204	   7214	W09-serialise-example-old.elf
+Finished building: default.size.stdout
+ 
+Finished building: W09-serialise-example-old.list
+ 
+
+15:14:19 Build Finished. 0 errors, 0 warnings. (took 706ms)
+

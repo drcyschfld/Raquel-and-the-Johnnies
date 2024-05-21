@@ -1,0 +1,10 @@
+16:22:59 **** Incremental Build of configuration Debug for project FORTNITE ****
+make -j7 all 
+arm-none-eabi-size  FORTNITE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  26020	    168	   3000	  29188	   7204	FORTNITE.elf
+Finished building: default.size.stdout
+ 
+
+16:22:59 Build Finished. 0 errors, 0 warnings. (took 421ms)
+
