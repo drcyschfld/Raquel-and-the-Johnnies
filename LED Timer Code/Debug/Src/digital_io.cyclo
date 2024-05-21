@@ -1,0 +1,19 @@
+/Users/darcyschofield/Dropbox/My Mac (Darcy’s MacBook Air)/Downloads/MTRX2700-2024-main/stm32f303-definitions/Core/Inc/core_cm4.h:1688:22:__NVIC_EnableIRQ	2
+/Users/darcyschofield/Dropbox/My Mac (Darcy’s MacBook Air)/Downloads/MTRX2700-2024-main/stm32f303-definitions/Core/Inc/core_cm4.h:1816:22:__NVIC_SetPriority	2
+../Src/digital_io.c:17:6:timer_set	1
+../Src/digital_io.c:22:12:delay_set	1
+../Src/digital_io.c:30:6:set_max_count	1
+../Src/digital_io.c:34:6:set_psc_value	1
+../Src/digital_io.c:38:6:LED_on	1
+../Src/digital_io.c:44:6:chase_led	6
+../Src/digital_io.c:71:6:TIM2_IRQHandler	2
+../Src/digital_io.c:78:5:enable_clocks	1
+../Src/digital_io.c:85:6:initialise_board	1
+../Src/digital_io.c:93:6:reset_timer	1
+../Src/digital_io.c:99:6:reset_UIF	1
+../Src/digital_io.c:105:6:max_count_value	1
+../Src/digital_io.c:112:6:start_timer	1
+../Src/digital_io.c:118:6:set_prescaler	1
+../Src/digital_io.c:125:6:general_initialisation	1
+../Src/digital_io.c:132:6:timer_initialisation	1
+../Src/digital_io.c:146:6:enable_interrupt	1
