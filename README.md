@@ -60,6 +60,7 @@ The serial interface recieves data from the lidar module which indicates how far
 
 **5. Timer/LED countdown**
 - run code and observe that it does desired behaviour. 
+- see user instructions
 
 **Serial interface**
 - input sample distances and observe output. tested serial with hard coded values before inetgrating the lidar. anything 100cm or less than 10 = 1000 points
